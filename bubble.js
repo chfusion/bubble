@@ -1,7 +1,7 @@
 window.onload = function() {
 	var w=window.innerWidth,h=window.innerHeight;
 	//alert(w+","+h);
-	var i=w/2,j=h/2,r=50,mr=150,sx,sy;
+	var i=w/2,j=h/2,r=50,mr=150,sx,sy,textsize;
 	var paper = new Raphael(document.getElementById('canvas_container'), w,h);
 	//var mydata = JSON.parse(data);
 	var texte,k,num=90,xc,yc,e=0,mx,my,xci,yci,nume=180,linecolor,linewidth;
@@ -113,9 +113,12 @@ function bubble(arg,ar,l)
 		sy=j;
 		r=50;
 		color="grey";
+        textsize=14;
+
 	}
 else if(ar==1)/*chiled*/
 {
+    textsize=10;
 	if(p==0)
 	{
 		num=90;
@@ -143,6 +146,7 @@ p++;
 }
 }
 	else {/*parent*/
+        textsize=12;
 		if(isNaN(arg))
 		{
 //console.log("normal"+xc+","+yc+","+nume);
@@ -176,7 +180,7 @@ var circle = paper.circle(mx,my,r);
 circle.attr({fill: color}).toBack();
 //console.log("mx"+mx+"my"+my);
 paper.line(sx,sy,mx,my).attr({"stroke":linecolor,"stroke-width":linewidth}).toBack();
-var texty= paper.text(mx,my,arg).attr({ "font-size": 10, "font-family": "Arial, Helvetica, sans-serif" });
+var texty= paper.text(mx,my,arg).attr({ "font-size": textsize, "font-family": "Arial, Helvetica, sans-serif" });
 //console.log(arg);
 e=e+1;
 }
@@ -184,14 +188,15 @@ e=e+1;
 else/*label in circle*/
 {
 //console.log("mx"+mx+"my"+my);
-	var texty= paper.text(mx-10,my-10,arg).attr({ "font-size": 10, "font-family": "Arial, Helvetica, sans-serif" }).toFront();
+	var texty= paper.text(mx-10,my-10,arg).attr({ "font-size": textsize, "font-family": "Arial, Helvetica, sans-serif" }).toFront();
 	//console.log(arg);
 }
 }
 
-var ar=0,l,li=0;
+var ar=0,l=0,li=0;
 function scan(obj)
 {
+    console.log(obj);
 	if(obj instanceof Array)
         	{
         		
@@ -202,6 +207,7 @@ function scan(obj)
 
     var k;
     if (obj instanceof Object) {
+        console.log("objecttttt"+obj);
     	if(li<l)
     	{
     		ar=1;
@@ -222,7 +228,7 @@ li++;
     } else {
         
      //alert(obj); 
-       	
+     // console.log("nonObject"+obj); 	
         		
 bubble(obj,ar,l);
 }
