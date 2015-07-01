@@ -176,7 +176,7 @@ var circle = paper.circle(mx,my,r);
 circle.attr({fill: color}).toBack();
 //console.log("mx"+mx+"my"+my);
 paper.line(sx,sy,mx,my).attr({"stroke":linecolor,"stroke-width":linewidth}).toBack();
-var texty= paper.text(mx,my,arg).attr({ "font-size": 5, "font-family": "Arial, Helvetica, sans-serif" });
+var texty= paper.text(mx,my,arg).attr({ "font-size": 10, "font-family": "Arial, Helvetica, sans-serif" });
 //console.log(arg);
 e=e+1;
 }
@@ -184,7 +184,7 @@ e=e+1;
 else/*label in circle*/
 {
 //console.log("mx"+mx+"my"+my);
-	var texty= paper.text(mx-10,my-10,arg).attr({ "font-size": 5, "font-family": "Arial, Helvetica, sans-serif" }).toFront();
+	var texty= paper.text(mx-10,my-10,arg).attr({ "font-size": 10, "font-family": "Arial, Helvetica, sans-serif" }).toFront();
 	//console.log(arg);
 }
 }
