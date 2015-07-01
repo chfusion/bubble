@@ -13,87 +13,144 @@ window.onload = function() {
 
 var testJSON = {
     "name":"total",
-    "value":"123",
+    "value":"200",
     "children":
     
    {
   
         "name":"a-b-c",
-        "value":"19",
+        "value":"80",
         "children":[
             {
 "name":"a",
-        "value":"12"                
+        "value":"79"                
             },
             {
             "name":"b",
-        "value":"120"
+        "value":"78"
             },
             {
             "name":"c",
-        "value":"130"
-            },
+        "value":"77"
+            }
             ]
     },
     
     "children1":
     {
         "name":"d-e-f",
-        "value":"129",
+        "value":"90",
         "children":[
             {
 "name":"d",
-        "value":"122"                
+        "value":"89"                
             },
             {
             "name":"e",
-        "value":"1202",
+        "value":"88",
             },
             {
             "name":"f",
-        "value":"145"
+        "value":"87"
             }
             ]
     },
      "children2":
     {
         "name":"g-h-i",
-        "value":"129",
+        "value":"100",
         "children":[
             {
 "name":"g",
-        "value":"122"                
+        "value":"99"                
             },
             {
             "name":"h",
-        "value":"1202"
+        "value":"98"
             },
             {
             "name":"i",
-        "value":"145"
+        "value":"97"
             },
              {
             "name":"j",
-        "value":"145"
+        "value":"96"
             }
             ]
     },
      "children3":
     {
-        "name":"i-j-k",
-        "value":"129",
+        "name":"l-m-n",
+        "value":"110",
         "children":[
             {
-"name":"i",
-        "value":"122"                
+"name":"l",
+        "value":"109"                
             },
             {
-            "name":"j",
-        "value":"1202"
+            "name":"m",
+        "value":"108"
             },
             {
-            "name":"k",
-        "value":"145"
+            "name":"n",
+        "value":"107"
+            }
+            ]
+    },
+    "children4":
+    {
+        "name":"o-p-q",
+        "value":"120",
+        "children":[
+            {
+"name":"o",
+        "value":"119"                
+            },
+            {
+            "name":"p",
+        "value":"118"
+            },
+            {
+            "name":"q",
+        "value":"117"
+            }
+            ]
+    },
+    "children5":
+    {
+        "name":"r-s-t",
+        "value":"140",
+        "children":[
+            {
+"name":"r",
+        "value":"139"                
+            },
+            {
+            "name":"s",
+        "value":"138"
+            },
+            {
+            "name":"t",
+        "value":"137"
+            }
+            ]
+    },
+    "children6":
+    {
+        "name":"u-v-w",
+        "value":"150",
+        "children":[
+            {
+"name":"u",
+        "value":"149"                
+            },
+            {
+            "name":"v",
+        "value":"148"
+            },
+            {
+            "name":"w",
+        "value":"147"
             }
             ]
     }
@@ -162,7 +219,7 @@ color="green";
 linecolor="red";
 linewidth="5";
 //console.log("normal"+xc+","+yc+","+nume);
-nume=nume+90;
+nume=nume+45;
 }
 }
 if(ar==1)/*chiled-cordinates*/
