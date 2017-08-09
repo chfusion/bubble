@@ -1,2 +1,2 @@
 # bubble
-simple eaxmple of javascript svg drawing
+simple eaxmple of javascript svg drawing.
