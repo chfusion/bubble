@@ -1,0 +1,102 @@
+SELECT t.table_schema, 
+       t.table_name, 
+       NULL AS table_comment, 
+       t.table_type, 
+       column_name, 
+       column_default, 
+       data_type     AS type_name, 
+       CASE data_type 
+          WHEN 'numeric' THEN 2
+          WHEN 'varchar' THEN 12
+          WHEN 'oid' THEN -5
+          WHEN '_text' THEN 2003
+          WHEN 'sql_identifier' THEN 2001
+          WHEN 'character_data' THEN 2001
+          WHEN 'name' THEN 12
+          WHEN 'yes_or_no' THEN 2001
+          WHEN 'cardinal_number' THEN 2001
+          WHEN 'time_stamp' THEN 2001
+          WHEN 'regproc' THEN 1111
+          WHEN '"char"' THEN 1
+          WHEN 'int2' THEN 5
+          WHEN 'bool' THEN -7
+          WHEN 'int4' THEN 4
+          WHEN 'text' THEN 12
+          WHEN 'cstring' THEN 1111
+          WHEN 'pg_node_tree' THEN 1111
+          WHEN '_aclitem' THEN 2003
+          WHEN 'timestamptz' THEN 93
+          WHEN '_name' THEN 2003
+          WHEN 'float4' THEN 7
+          WHEN 'xid' THEN 1111
+          WHEN '_int2' THEN 2003
+          WHEN '_oid' THEN 2003
+          WHEN 'int2vector' THEN 1111
+          WHEN 'oidvector' THEN 1111
+          WHEN 'bytea' THEN -2
+          WHEN '_regtype' THEN 2003
+          WHEN '_char' THEN 2003
+          WHEN 'pg_lsn' THEN 1111
+          WHEN 'abstime' THEN 1111
+          WHEN 'inet' THEN 1111
+          WHEN 'int8' THEN -5
+          WHEN 'float8' THEN 8
+          WHEN '_float4' THEN 2003
+          WHEN 'anyarray' THEN 1111
+          WHEN 'interval' THEN 1111
+          WHEN 'timestamp' THEN 93
+          WHEN 'date' THEN 91
+          WHEN '_bpchar' THEN 2003 
+         ELSE 1111 
+       END           AS data_type, 
+       CASE 
+         WHEN character_maximum_length IS NULL THEN 
+           CASE( data_type ) 
+             WHEN 'BIT' THEN 1 
+             WHEN 'TINYINT' THEN 1 
+             WHEN 'SMALLINT' THEN 2 
+             WHEN 'BIGINT' THEN 8 
+             WHEN 'FLOAT' THEN 8 
+             WHEN 'REAL' THEN 4 
+             WHEN 'DECIMAL' THEN 17 
+             WHEN 'NUMERIC' THEN 17 
+             WHEN 'CHAR' THEN 8000 
+             WHEN 'NCHAR' THEN 8000 
+             WHEN 'VARCHAR' THEN 8000 
+             WHEN 'NVARCHAR' THEN 8000 
+             WHEN 'DATE' THEN 3 
+             WHEN 'DATETIME' THEN 8 
+             WHEN 'DATETIME2' THEN 8 
+             WHEN 'DATETIMEOFFSET' THEN 10 
+             WHEN 'SMALLDATETIME' THEN 4 
+             WHEN 'TIME' THEN 5 
+             WHEN 'TIMESTAMP' THEN 8 
+             WHEN 'BINARY' THEN 8000 
+             WHEN 'VARBINARY' THEN -3 
+             WHEN 'TEXT' THEN 16 
+             WHEN 'NTEXT' THEN 16 
+             WHEN 'INT' THEN 4 
+             WHEN 'IMAGE' THEN 16 
+             WHEN 'MONEY' THEN 8 
+             WHEN 'SMALLMONEY' THEN 4 
+             WHEN 'UNIQUEIDENTIFIER' THEN 16 
+             WHEN 'XML' THEN -1 
+             WHEN 'SYSNAME' THEN 256 
+             WHEN 'GEOMETRY' THEN -1 
+             WHEN 'GEOGRAPHY' THEN -1 
+             WHEN 'SQL_VARIANT' THEN 8016 
+             WHEN 'HIERARCHYID' THEN 892 
+           END 
+         ELSE character_maximum_length 
+       END           AS character_maximum_length, 
+       numeric_scale AS decimal_digits, 
+       is_nullable, 
+       NULL          AS column_comment, 
+       data_type     AS column_type, 
+       ordinal_position 
+FROM   information_schema.tables t 
+       INNER JOIN information_schema.columns c 
+               ON t.table_name = c.table_name 
+                  AND c.table_schema = t.table_schema 
+WHERE  t.table_type = 'BASE TABLE' 
+       AND t.table_schema NOT IN ( 'information_schema' ) 
