@@ -3,6 +3,6 @@ var {EventEmitter} = require("events"),
 localEvent = new EventEmitter();
 module.exports = localEvent;
 
-localEvent.on("data",function(data,successCount){
-    console.log(data,successCount);
+localEvent.on("data",function(Data,successCount){
+    console.log(Data,successCount);
 })
